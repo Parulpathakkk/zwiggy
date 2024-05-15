@@ -10,11 +10,9 @@ const Header = () => {
       <Link to="/"><img className="w-[6cqw] h-[7cqw]  " src={LOGO_URL} alt="logo" /></Link>  
       </div>
       <div className="w-[70%]">
-        <ul className="flex gap-[5cqw] justify-end items-center font-poppins md:text-[1.2cqw] font-semibold">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About us</Link></li>
-          <li>Contact us</li>
-          <li>Cart</li>
+        <div className="flex gap-[5cqw] justify-end items-center font-poppins md:text-[1.2cqw] font-semibold">
+          {/* search */}
+          {/*  */}
           <button
             onClick={() => {
               btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
@@ -23,7 +21,7 @@ const Header = () => {
           >
             {btnName}
           </button>
-        </ul>
+        </div>
       </div>
     </header>
   );
