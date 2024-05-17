@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import ResCard from "./ResCard";
+import ResCard , {withPromotedLabel} from "./ResCard";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
 import Caraousal from "./Caraousal";
@@ -19,6 +19,8 @@ function Body() {
   let [filterlistRes, setFilterlistRes] = useState([]);
   let [caraousal, setCaraousal] = useState([]);
   let [searchText, setSearchText] = useState("");
+
+  const ResCardPromted = withPromotedLabel(ResCard);
 
   useEffect(() => {
     fetchData();
@@ -137,7 +139,11 @@ if(onlineStatus===false) return <h1>offline</h1>
             to={"/restaurants/" + res.info.id}
             className=""
           >
-            <ResCard resData={res} />
+          {
+            res.info.promoted ?
+           ( <ResCardPromted resData={res} /> ): (<ResCard resData={res} />)
+          }
+            
           </Link>
         ))}
       </div>
